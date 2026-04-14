@@ -2,7 +2,7 @@ import type { ProjectDetail } from "../project.types"
 
 export const ProjectHeader = ({ project }: { project: ProjectDetail }) => {
   return (
-    <div className="py-3 px-3 bg-white border-bottom">
+    <div className="p-3 m-3 bg-white border rounded">
       <div className='d-flex justify-content-between align-items-center'>
         <h2>{project.name}</h2>
         <button className="btn btn-sm btn-outline-primary">Editar proyecto</button>

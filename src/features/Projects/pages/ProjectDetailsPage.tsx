@@ -1,4 +1,3 @@
-// ProjectDetailPage.tsx
 import { useEffect } from "react"
 import { useParams } from "react-router-dom"
 import { useAppDispatch, useAppSelector } from "../../../app/hooks"
@@ -33,19 +32,10 @@ export const ProjectDetailPage = () => {
 
       <ProjectStats stats={project.stats} />
 
-      {/* <div className="row">
-        <div className="col-md-4">
-          <ProjectTeam team={project.team} />
-        </div>
-
-        <div className="col-md-8">
-          <ProjectServicesList services={project.services} />
-        </div>
-      </div> */}
-
       <div className='m-3 p-3 border rounded bg-white'>
         <div className='d-flex justify-content-between'>
-          <h4 className="text-primary">Equipo</h4>
+          {/* <h4 className="text-primary">Equipo</h4> */}
+          <h4 className="">Equipo</h4>
           <div>
             <button className="btn btn-sm btn-outline-primary mx-2">Administrar</button>
             <button className="btn btn-sm btn-outline-primary"><UserPlus size={16} /> Invitar Miembro</button>
@@ -57,8 +47,8 @@ export const ProjectDetailPage = () => {
       </div>
 
       <div className='m-3 p-3 border rounded bg-white'>
-        <div className='d-flex justify-content-between'>
-          <h5>Servicios</h5>
+        <div className='d-flex justify-content-between align-items-center'>
+          <h4>Servicios</h4>
           <button className="btn btn-sm btn-outline-primary mx-2">Agregar nuevo</button>
         </div>
         <hr />

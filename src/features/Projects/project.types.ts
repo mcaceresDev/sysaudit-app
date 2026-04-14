@@ -27,7 +27,7 @@ export interface ProjectDetail {
     leader: {
       id: number
       name: string
-      lastname: string,
+      lastname: string
       email: string
     } | null
     members: {

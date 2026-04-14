@@ -1,4 +1,3 @@
-// projectDetail.selectors.ts
 import type { RootState } from "../../app/store"
 
 export const selectProjectDetail = (state: RootState) =>

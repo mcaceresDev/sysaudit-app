@@ -5,10 +5,7 @@ export const ProjectServicesList = ({ services }: any) => {
     <div className="card shadow-sm">
       <div className="card-body">
         {services.map((s: any) => (
-          <div
-            key={s.id}
-            className="list-group-item"
-          >
+          <div key={s.id} className="list-group-item" >
             <div className="w-100 d-flex justify-content-between">
               <strong>{s.name}</strong>
               <button className="btn btn-sm btn-outline-primary">Administrar</button>
