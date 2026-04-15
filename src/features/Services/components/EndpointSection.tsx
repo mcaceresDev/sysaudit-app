@@ -1,6 +1,9 @@
 import { ArrowUpRight } from 'lucide-react'
+import { useNavigate } from 'react-router-dom'
 
 const EndpointSection = ({ endpoints }: any) => {
+
+    const navigate = useNavigate()
 
     const selectMethodClassTag = (method:any) => {
 
@@ -31,7 +34,7 @@ const EndpointSection = ({ endpoints }: any) => {
                                 </div>
                                 <span>{endpoint.path}</span>
                             </div>
-                            <button className="btn btn-sm btn-outline-primary"> <ArrowUpRight size={16} /></button>
+                            <button className="btn btn-sm btn-outline-primary" onClick={()=> navigate(`/endpoint/${endpoint.id}`)}> <ArrowUpRight size={16} /> </button>
                         </div>
                     ))
                     :
