@@ -30,7 +30,7 @@ const EndpointSection = ({ endpoints }: any) => {
                         <div className="p-2 my-3 rounded border d-flex justify-content-between align-items-center" key={endpoint.id}>
                             <div className='d-flex'>
                                 <div className='border-end me-3' style={{ width: "80px" }}>
-                                    <span className={selectMethodClassTag(endpoint.method)}>{endpoint.method}</span>
+                                    <span className={`${selectMethodClassTag(endpoint.method)} fw-bold`}>{endpoint.method}</span>
                                 </div>
                                 <span>{endpoint.path}</span>
                             </div>

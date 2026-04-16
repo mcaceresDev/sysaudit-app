@@ -30,12 +30,23 @@ export const CodeBlock = ({ type, content }: Props) => {
 
   return (
     <div>
-      <span className="badge bg-success">
-        200 OK
-      </span>
-      <span className="badge bg-secondary mx-2">
-        {type.toUpperCase()}
-      </span>
+      <div className="d-flex justify-content-between align-items-center">
+        <div>
+          <span className="badge bg-success">
+            200 OK
+          </span>
+          <span className="badge bg-secondary mx-2">
+            {type.toUpperCase()}
+          </span>
+        </div>
+        <button
+          className="btn btn-sm btn-outline-success mb-2"
+          onClick={() => navigator.clipboard.writeText(formatContent())}
+        >
+          Copiar
+        </button>
+      </div>
+
       <SyntaxHighlighter
         language={getLanguage()}
         style={oneDark}

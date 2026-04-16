@@ -7,6 +7,7 @@ const EndpointDetailPage = () => {
     return (
         <div className='rounded bg-light border'>
             <EndpointHeader />
+            
             <AuthConfigSection />
 
             <div className="row">

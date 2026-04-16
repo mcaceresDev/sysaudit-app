@@ -48,16 +48,18 @@ const ResponseSection = () => {
 
             <p>Acá se muestra una lista de respuestas esperadas. Estas servirán de referencia cuando realices pruebas</p>
 
-            <div className='border rounded p-3 bg-success-subtle mb-3'>
-                <p>Ejemplo de respuesta exitosa</p>
+            <div className='' style={{maxHeight: "350px", overflow: "scroll" }}>
+                <div className='border rounded p-3 bg-success-subtle mb-3'>
+                    <p>Ejemplo de respuesta exitosa</p>
 
-                <CodeBlock type={"json"} content={codeExample} />
-            </div>
-            
-            <div className='border rounded p-3 bg-success-subtle'>
-                <p>Ejemplo de respuesta exitosa xml</p>
+                    <CodeBlock type={"json"} content={codeExample} />
+                </div>
+                
+                <div className='border rounded p-3 bg-success-subtle'>
+                    <p>Ejemplo de respuesta exitosa xml</p>
 
-                <CodeBlock type={"xml"} content={xmlExample} />
+                    <CodeBlock type={"xml"} content={xmlExample} />
+                </div>
             </div>
 
         </div>
