@@ -4,6 +4,7 @@ import ProjectPage from '../features/Projects/pages/ProjectPage'
 import { ProjectDetailPage } from '../features/Projects/pages/ProjectDetailsPage'
 import { ServiceDetailPage } from '../features/Services/pages/ServiceDetailPage'
 import EndpointDetailPage from '../features/Endpoints/pages/EndpointDetailPage'
+import TestPage from '../features/Test/pages/TestPage'
 
 export default function AppRoutes() {
   return (
@@ -23,6 +24,7 @@ export default function AppRoutes() {
             <Route path='/project/:id' element={<ProjectDetailPage />} />
             <Route path='/service/:id' element={<ServiceDetailPage />} />
             <Route path='/endpoint/:id' element={<EndpointDetailPage />} />
+            <Route path='/test' element={<TestPage />} />
 
         </Route>
 
