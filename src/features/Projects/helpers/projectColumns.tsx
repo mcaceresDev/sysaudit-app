@@ -30,12 +30,12 @@ export const projectColumns = ({ onEdit, onDelete }: Props): ColumnDef<Project>[
                         <SquarePen size={16} />
                     </button>
 
-                    <button
+                    {/* <button
                         className="btn btn-sm btn-outline-danger"
                         onClick={() => onDelete(project)}
                     >
                         <Trash size={16} />
-                    </button>
+                    </button> */}
 
                     <a
                         className="btn btn-sm btn-outline-primary"

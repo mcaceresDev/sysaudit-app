@@ -11,6 +11,7 @@ import {
   updateProject
 } from "../projectSlice"
 import "../styles/projectStyles.css"
+import { showToast } from "../../../shared/alerts/alert.service"
 
 export const ProjectModalForm = () => {
   const dispatch = useAppDispatch()
@@ -52,9 +53,21 @@ export const ProjectModalForm = () => {
       dispatch(updateProject({
         id: selectedProject!.id,
         data
-      }))
+      })).unwrap()
+        .then(() => {
+          showToast("Proyecto creado correctamente")
+        })
+        .catch(() => {
+          showToast("Error al crear proyecto", "error")
+        })
     } else {
-      dispatch(createProject(data))
+      dispatch(createProject(data)).unwrap()
+        .then(() => {
+          showToast("Actualizado correctamente")
+        })
+        .catch(() => {
+          showToast("Error al crear proyecto", "error")
+        })
     }
 
     dispatch(closeModal())
@@ -65,68 +78,68 @@ export const ProjectModalForm = () => {
   return (
 
     <>
-        {/* BACKDROP */}
-        <div className="modal-backdrop fade show"></div>
-        <div className="modal fade show d-block" tabIndex={-1}>
+      {/* BACKDROP */}
+      <div className="modal-backdrop fade show"></div>
+      <div className="modal fade show d-block" tabIndex={-1}>
         <div className="modal-dialog modal-dialog-centered">
-            <div className="modal-content">
+          <div className="modal-content">
 
             {/* HEADER */}
             <div className="modal-header">
-                <h5 className="modal-title">
+              <h5 className="modal-title">
                 {isEdit ? "Editar Proyecto" : "Crear Proyecto"}
-                </h5>
+              </h5>
 
-                <button
+              <button
                 type="button"
                 className="btn-close"
                 onClick={() => dispatch(closeModal())}
-                />
+              />
             </div>
 
             {/* BODY */}
             <div className="modal-body">
-                <form onSubmit={handleSubmit(onSubmit)}>
+              <form onSubmit={handleSubmit(onSubmit)}>
 
                 <div className="mb-3">
-                    <label htmlFor="" className="form-label">Nombre</label>
-                    <input
-                        className="form-control mb-2"
-                        {...register("name")}
-                        // placeholder="Nombre"
-                    />
-                    {errors.name && <small>{errors.name.message}</small>}
+                  <label htmlFor="" className="form-label">Nombre</label>
+                  <input
+                    className="form-control mb-2"
+                    {...register("name")}
+                  // placeholder="Nombre"
+                  />
+                  {errors.name && <small>{errors.name.message}</small>}
                 </div>
 
                 <div className="mb-3">
-                    <label htmlFor="" className="form-label">Descripción</label>
-                    <textarea
-                        className="form-control mb-2"
-                        {...register("description")}
-                    />
+                  <label htmlFor="" className="form-label">Descripción</label>
+                  <textarea
+                    className="form-control mb-2"
+                    {...register("description")}
+                  />
                 </div>
 
                 <div className="mb-3">
-                    <label htmlFor="" className="form-label">Tecnologías</label>
-                    <input
-                        className="form-control mb-2"
-                        {...register("tecnologies")}
-                    />
+                  <label htmlFor="" className="form-label">Tecnologías</label>
+                  <input
+                    className="form-control mb-2"
+                    {...register("tecnologies")}
+                  />
                 </div>
 
                 <div className="d-flex w-100">
-                    <button className="btn btn-sm btn-outline-success mx-auto">
-                        {isEdit ? "Actualizar" : "Guardar"}
-                    </button>
+                  <button className="btn btn-sm btn-outline-success mx-auto">
+                    {isEdit ? "Actualizar" : "Guardar"}
+                  </button>
                 </div>
-                </form>
+              </form>
             </div>
 
-            </div>
+          </div>
         </div>
 
-        </div>
-    
+      </div>
+
     </>
   )
 }

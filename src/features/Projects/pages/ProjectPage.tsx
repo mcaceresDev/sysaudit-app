@@ -15,7 +15,7 @@ const ProjectPage = () => {
   )
 
   const handleEdit = (project: Project) => {
-    console.log(project);
+    // console.log(project);
     dispatch(openModal(project))
     
     // setSelectedProject(project)
