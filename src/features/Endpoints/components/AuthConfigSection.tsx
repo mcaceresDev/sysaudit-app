@@ -1,36 +1,6 @@
-// import { Baseline, BookText, Shield } from "lucide-react"
-
+import { useState } from "react"
 import { useAppSelector } from "../../../app/hooks"
-
-// const AuthConfigSection = () => {
-//     return (
-//         <div className="p-3 m-3 bg-white border rounded">
-//             <div className='d-flex justify-content-between align-items-center'>
-//                 <h4>Configuración de Autenticación</h4>
-//                 <div>
-//                     <button className="mx-2 btn btn-sm btn-outline-primary">Editar configuración</button>
-//                 </div>
-//             </div>
-//             <hr />
-
-//             <div className="mb-3">
-//                 <h5 className="form-label">Tipo de Autenticación</h5>
-//                 <p className="my-3"><Shield className="text-primary" /> Bearer</p>
-//             </div>
-//             <div className="mb-3">
-//                 <h5 className="form-label">Header</h5>
-//                 <p className="my-3"><BookText className="text-primary" /> Authorization</p>
-//             </div>
-//             <div className="mb-3">
-//                 <h5 className="form-label">Prefijo de token</h5>
-//                 <p className="my-3"><Baseline className="text-primary" /> Bearer</p>
-//             </div>
-//         </div>
-//     )
-// }
-
-// export default AuthConfigSection
-
+import { AuthModal } from "./AuthModal"
 
 const AuthConfigSection = () => {
   const endpoint = useAppSelector(state => state.endpointDetail.data)
@@ -39,16 +9,31 @@ const AuthConfigSection = () => {
 
   const auth = endpoint.auth_config
 
+  const [open, setOpen] = useState(false)
+
+
+  if (endpoint.auth_type === "none") {
+    return (
+      <div className="my-3">
+        <h4 className="text-center">
+          Este endpoint no requiere autenticación
+        </h4>
+
+      </div>
+    )
+  }
+
+  const hasAuth = auth && auth.type
+
   return (
     <div className="card p-3">
-
-      {!auth ? (
+      {!hasAuth ? (
         <>
           <p className="text-muted">
             No hay autenticación configurada
           </p>
 
-          <button className="btn btn-primary">
+          <button className="btn btn-sm btn-outline-primary" onClick={() => setOpen(true)}>
             Agregar autenticación
           </button>
         </>
@@ -67,6 +52,13 @@ const AuthConfigSection = () => {
         </>
       )}
 
+      {open && (
+        <AuthModal
+          endpointId={endpoint.id}
+          onClose={() => setOpen(false)}
+          defaultValues={endpoint.auth_config}
+        />
+      )}
     </div>
   )
 }

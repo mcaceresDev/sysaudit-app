@@ -73,11 +73,21 @@ import { CodeBlock } from "../../../components/CodeBlockFormater"
 
 const ResponseSection = () => {
   const endpoint = useAppSelector(s => s.endpointDetail.data)
+  const creating = useAppSelector(s => s.response.creating)
 
   if (!endpoint) return null
 
   return (
     <div>
+
+       <div className="d-flex justify-content-between mb-3">
+        <h5>Respuestas</h5>
+
+        <button className="btn btn-sm btn-outline-primary" disabled={creating}>
+          {creating ? "Guardando..." : "Agregar"}
+        </button>
+      </div>
+
       {endpoint.responses.length === 0 ? (
         <p className="text-muted">No hay Respuestas configuradas</p>
       ) :

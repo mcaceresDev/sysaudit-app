@@ -6,6 +6,7 @@ import EndpointHeader from "../components/EndpointHeader"
 import AuthConfigSection from "../components/AuthConfigSection"
 import ParametersSection from "../components/ParametersSection"
 import ResponseSection from "../components/ResponseSection"
+import BodySection from "../components/BodySection"
 import { Tabs } from "../components/Tabs"
 // SLICES
 import { fetchEndpointDetail } from "../endpointDetailSlice"
@@ -46,24 +47,14 @@ const EndpointDetailPage = () => {
         <div className='rounded bg-light border'>
             <EndpointHeader endpoint={data} />
 
-            {/* <AuthConfigSection />
-
-            <div className="row">
-                <div className="col-6">
-                    <ParametersSection />
-                </div>
-                <div className="col-6">
-                    <ResponseSection />
-                </div>
-            </div> */}
-
             <div className="p-3 m-3 bg-white border rounded">
                 <Tabs
                     tabs={[
                         // { key: "info", label: "Info", content: <InfoTab /> },
                         { key: "auth", label: "Auth", content: <AuthConfigSection /> },
                         { key: "params", label: "Params", content: <ParametersSection /> },
-                        { key: "responses", label: "Responses", content: <ResponseSection /> }
+                        { key: "responses", label: "Responses", content: <ResponseSection /> },
+                        { key: "body", label: "Body", content: <BodySection /> }
                     ]}
                 />
             </div>
