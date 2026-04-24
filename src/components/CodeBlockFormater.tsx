@@ -3,7 +3,7 @@ import { oneDark } from "react-syntax-highlighter/dist/esm/styles/prism"
 
 type Props = {
   type: "json" | "xml" | "html" | "text"
-  content: any
+  content: unknown
 }
 
 export const CodeBlock = ({ type, content }: Props) => {
@@ -25,7 +25,10 @@ export const CodeBlock = ({ type, content }: Props) => {
     if (type === "json") {
       return JSON.stringify(content, null, 2)
     }
-    return content
+    if (typeof content === "string") {
+      return content
+    }
+    return JSON.stringify(content, null, 2)
   }
 
   return (

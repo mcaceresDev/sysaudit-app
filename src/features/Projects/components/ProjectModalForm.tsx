@@ -55,7 +55,7 @@ export const ProjectModalForm = () => {
         data
       })).unwrap()
         .then(() => {
-          showToast("Proyecto creado correctamente")
+          showToast("Actualizado correctamente")
         })
         .catch(() => {
           showToast("Error al crear proyecto", "error")
@@ -63,7 +63,7 @@ export const ProjectModalForm = () => {
     } else {
       dispatch(createProject(data)).unwrap()
         .then(() => {
-          showToast("Actualizado correctamente")
+          showToast("Proyecto creado correctamente")
         })
         .catch(() => {
           showToast("Error al crear proyecto", "error")

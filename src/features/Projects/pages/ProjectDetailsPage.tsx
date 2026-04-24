@@ -2,9 +2,8 @@ import { useEffect } from "react"
 import { useParams } from "react-router-dom"
 import { useAppDispatch, useAppSelector } from "../../../app/hooks"
 import { fetchProjectDetail } from "../projectDetailSlice"
-
 import { selectProjectDetail, selectProjectDetailLoading } from "../projectDetail.selectors"
-
+// COMPONENTS
 import { ProjectHeader } from "../components/ProjectHeader"
 import { ProjectStats } from "../components/ProjectStats"
 import { ProjectTeam } from "../components/ProjectTeam"
